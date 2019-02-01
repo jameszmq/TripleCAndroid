@@ -1,17 +1,22 @@
 package triplec.com;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +24,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 public class MapFragment extends Fragment {
 
     MapView mMapView;
-    private GoogleMap googleMap;
+    private GoogleMap mMap;
 
     public MapFragment() {
         // Required empty public constructor
@@ -35,19 +40,17 @@ public class MapFragment extends Fragment {
 
         mMapView.onResume(); // needed to get the map to display immediately
 
-        try {
-            MapsInitializer.initialize(getActivity().getApplicationContext());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         mMapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(GoogleMap mMap) {
-                return;
+            public void onMapReady(GoogleMap googleMap) {
+                mMap = googleMap;
+
+                // Add a marker in Sydney and move the camera
+                LatLng sydney = new LatLng(-34, 151);
+                mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
             }
         });
-
         return view;
 
     }
