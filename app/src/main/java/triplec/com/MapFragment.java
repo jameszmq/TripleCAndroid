@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -45,10 +46,11 @@ public class MapFragment extends Fragment {
             public void onMapReady(GoogleMap googleMap) {
                 mMap = googleMap;
 
-                // Add a marker in Sydney and move the camera
-                LatLng sydney = new LatLng(-34, 151);
-                mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                // Add a marker at Geisel and move the camera
+                LatLng Geisel = new LatLng(32.8811507, -117.2374497);
+                mMap.addMarker(new MarkerOptions().position(Geisel).title("Marker at Geisel"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(Geisel));
+                mMap.moveCamera(CameraUpdateFactory.zoomTo(18));
             }
         });
         return view;
