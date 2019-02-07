@@ -1,16 +1,12 @@
 package triplec.com;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class RouteActivity extends FragmentActivity {
@@ -87,5 +83,34 @@ public class RouteActivity extends FragmentActivity {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.show, fragment).commit();
     }
+
+    /* ArrayAdapter for ListView
+    class PlaceAdapter extends ArrayAdapter<Place>{
+
+        public PlaceAdapter(@androidx.annotation.NonNull Context context, int resource, @androidx.annotation.NonNull List<Place> objects) {
+            super(context, R.layout.list_item, objects);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            // Get the data item for this position
+            Place place = getItem(position);
+            // Check if an existing view is being reused, otherwise inflate the view
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            }
+            // Lookup view for data population
+            ImageView photo = (ImageView) convertView.findViewById(R.id.place_photo);
+            TextView name = (TextView) convertView.findViewById(R.id.place_name);
+            TextView description = (TextView) convertView.findViewById(R.id.place_description);
+            // Populate the data into the template view using the data object
+            photo.setImageBitmap(place.getPhoto());
+            name.setText(place.getName());
+            description.setText(place.getDescription());
+            // Return the completed view to render on screen
+            return convertView;
+        }
+    }
+    */
 
 }
