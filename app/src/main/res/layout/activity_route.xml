@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
@@ -20,6 +21,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/colorPrimary"
             android:text="Search and Add"/>
     </LinearLayout>
     <RelativeLayout
@@ -34,17 +36,32 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
+            android:src="@drawable/ic_list_black_24dp"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="ShowList"/>
         <ImageButton
             android:id="@+id/map_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/list_view"
+            android:src="@drawable/ic_map_black_24dp"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="ShowMap"/>
     </RelativeLayout>
     <FrameLayout
         android:id="@+id/show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        >
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add_black_24dp"
+            app:backgroundTint="@color/colorPrimary"
+            />
+    </FrameLayout>
+
 </LinearLayout>
