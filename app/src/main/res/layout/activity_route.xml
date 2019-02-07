@@ -14,11 +14,13 @@
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/search_add_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Wanna go somewhere else too?"
             android:layout_weight="1"/>
         <Button
+            android:onClick="SearchAndAdd"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/colorPrimary"
@@ -54,12 +56,12 @@
         android:layout_height="match_parent"
         >
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/add_button"
+            android:onClick="AddToMyList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_add_black_24dp"
+            android:src="@drawable/ic_star_border_black_24dp"
             app:backgroundTint="@color/colorPrimary"
             />
     </FrameLayout>
